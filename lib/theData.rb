@@ -8,7 +8,7 @@ class TheData
 
   def get_categories
     @all_categories = Scraper.scrape_categories.collect do |category|
-      next if category.text == 'wiki' or category.text == 'gilded'
+      next if category.text == 'wiki' or category.text == 'gilded' or category.text == 'promoted'
       {:name => category.text, :link => category['href']}
     end.compact
   end

@@ -8,7 +8,9 @@ require_relative "./cli.rb"
 require_relative "./theData.rb"
 require_relative "./scraper.rb"
 
-Cli.new.run
+def reddits
+  Cli.new.run
+end
 
 module Reddits
   # Your code goes here...
