@@ -17,7 +17,11 @@ class Cli
 
   def list(array)
     array.each_with_index do |category, index|
-      puts "#{index+1}. #{category[:name]}"
+      if index.even? 
+        puts "#{index+1}. #{category[:name]}".colorize(:background => :red, :color => :white) 
+      else 
+        puts "#{index+1}. #{category[:name]}".colorize(:background => :light_black, :color => :white)
+      end
     end 
   end
   
@@ -69,5 +73,21 @@ class Cli
     puts "#{"Posted on:".colorize(:color => :light_white)} #{@theData.post[:time].colorize(:color => :yellow)}"
     puts "#{"Link:".colorize(:color => :light_white)} #{@theData.post[:link].colorize(:color => :light_blue)}"
     puts ""
+    display_in_browser
+  end
+
+  def display_in_browser
+    link = @theData.post[:link]
+    puts "Type b to display in browser or any key to quit".colorize(:color => :cyan)
+    browser = STDIN.gets.chomp
+    if browser.upcase == 'B'
+      begin
+         Launchy.open(link)
+      rescue
+        puts "Couldn't access browser. Link will be copied to clipboard instead.".colorize(:red)
+        Clipboard.copy(link)
+        puts "#{link.colorize(:light_blue)} copied to cliboard!"
+      end
+    end
   end
 end

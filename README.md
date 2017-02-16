@@ -1,8 +1,6 @@
 # Reddits
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/reddits`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+see what's new on reddit and take a little break!
 
 ## Installation
 
@@ -22,7 +20,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+once gem is required the method 'reddits' will be exposed.
+just type: reddits
 
 ## Development
 
@@ -32,10 +31,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/reddits.
+Bug reports and pull requests are welcome on GitHub at https://github.com/StreamedLine/reddits.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
