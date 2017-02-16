@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dovidlwtn@gmail.com"]
 
   spec.summary       = "Scrapes reddits landing page."
-  spec.homepage      = "https://github.com/StreamedLine/redditScraper.git "
+  spec.homepage      = "https://github.com/StreamedLine/redditScraper"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
