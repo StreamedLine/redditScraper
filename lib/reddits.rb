@@ -16,6 +16,6 @@ def reddits
   Cli.new.run
 end
 
-module Reddits
-  # Your code goes here...
-end
+# module Reddits
+#   # Your code goes here...
+# end
