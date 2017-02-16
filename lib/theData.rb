@@ -2,6 +2,7 @@ class TheData
   attr_accessor :all_categories, :category_link, :category, :post
 
   def initialize
+    @post = {}
     get_categories
   end
 
@@ -19,11 +20,23 @@ class TheData
 
   def get_selected_category
     @category = Scraper.scrape_selected_category(@category_link).collect do |post|
-      {:name => post.inner_text}
+      {:name => post.css('div.entry').inner_text.split('submitted')[0], :post => post}
     end
   end
 
   def select_specific_post(selection)
-    puts selection
+    add_post_attributes(selection)
+  end
+
+  def add_post_attributes(selection)
+    selection = selection[:post]
+    @post[:title] = selection.css('a.title').text
+    @post[:author] = selection.css('a.author').text
+    @post[:link] = selection.css('a.title')[0]['href']
+    @post[:time] = "#{selection.css('time')[0]['title']}; #{selection.css('time')[0].inner_text}"
+
+    if @post[:link][0] == '/'
+      @post[:link] = "https://reddit.com" + @post[:link]
+    end
   end
 end

@@ -11,6 +11,8 @@ class Cli
 
     get_selected_category
     select_specific_post
+
+    display_post
   end
 
   def list(array)
@@ -59,5 +61,13 @@ class Cli
       end
     end
     @theData.select_specific_post(@theData.category[selection.to_i-1])
+  end
+
+  def display_post
+    puts "\n#{"Title:".colorize(:color => :light_white)} #{@theData.post[:title].colorize(:color => :light_green)}"
+    puts "#{"Author:".colorize(:color => :light_white)} #{@theData.post[:author].colorize(:color => :green)}"
+    puts "#{"Posted on:".colorize(:color => :light_white)} #{@theData.post[:time].colorize(:color => :yellow)}"
+    puts "#{"Link:".colorize(:color => :light_white)} #{@theData.post[:link].colorize(:color => :light_blue)}"
+    puts ""
   end
 end
